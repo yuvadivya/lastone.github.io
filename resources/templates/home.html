@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>counter stroke</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/75c827f1f1.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Corona Virus 19 India</h1>
+    <p>Namaste India! This Application shows the current number of cases reported across India</p>
+    <div class="card" style="width: 18rem;">
+        <i class="fas fa-procedures" style='font-size:48px;color:orange' align="center"></i>
+        <div class="card-body">
+            <h5 class="display-4" th:text="${totalReportedCases}" align="center"></h5>
+            <p class="display-5" align="center">Reported Cases</p>
+        </div>
+    </div>
+
+
+    <div class="card" style="width: 18rem;" align="center">
+        <i class='fas fa-walking' style='font-size:48px;color:blue' align="center"></i>
+        <div class="card-body">
+            <h5 class="display-4" th:text="${totalRecoveredCases}" align="center"></h5>
+            <p class="display-5" align="center">Recovered Cases</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;" align="center">
+        <i class="fas fa-book-dead" style='font-size:48px;color:red' ></i>
+        <div class="card-body">
+            <h5 class="display-4" th:text="${totalDeceasedCases}" align="center"></h5>
+            <p class="display-5" align="center">Deceased Cases</p>
+        </div>
+    </div>
+
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>State</th>
+            <th>Confirmed</th>
+            <th>Recovered</th>
+            <th>Deceased</th>
+            <th>Active</th>
+        </tr>
+
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.confirmed}"></td>
+            <td th:text="${locationStat.recovered}"></td>
+            <td th:text="${locationStat.deceased}"></td>
+            <td th:text="${locationStat.active}"></td>
+
+        </tr>
+        </thead>
+    </table>
+
+</div>
+
+</body>
+
+</html>
+
